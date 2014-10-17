@@ -37,6 +37,9 @@ public class Assignment7Part1Test{
         System.out.println("Enter an end number of seconds");
         try{
           end = keyboard.nextInt();
+          if(end < start)
+            System.out.println("Error: end value must be greater than start value.");
+          else
           valid = true;
         }
         catch (Exception e){
