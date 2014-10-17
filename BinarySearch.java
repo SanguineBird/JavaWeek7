@@ -20,20 +20,24 @@ public class BinarySearch{
     else{
       int mid = (first + last)/2;
       
-      if (key == a[mid])
+      if (key.compareTo(a[mid]) == 0)
         result = mid;
-      else if (key < a[mid])
+      else if (key.compareTo(a[mid]) < 0)
         result = search(a, first, mid - 1, key);
-      else if (key > a[mid])
+      else if (key.compareTo(a[mid]) > 0)
         result = search(a, mid + 1, last, key);
+      else{
+        System.out.println("Error");
+        result = -1;
+      }
     }
     return result;
   }
   
-  public toString(T key, int result)
+  public static void toString(String key, int result){
     if(result == -1)
       System.out.println(key + " is not in the array.");
     else
       System.out.println(key + " is at index " + result);
-    
+  }
 }
