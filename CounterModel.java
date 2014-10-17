@@ -13,10 +13,11 @@ public class CounterModel{
   }
   
   public void Increment(){
+    CounterView view = new CounterView();
     try{
       Thread.sleep(1000);
+      view.Display(counter);
       counter ++;
-      CounterView view = new CounterView();
     }
     catch(InterruptedException e){
       System.out.println("Error!");
