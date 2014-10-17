@@ -10,24 +10,39 @@ import java.util.Scanner;
 public class Assignment7Part1Test{
   
   public static void main(String[] args){
-    boolean finished = false, yN = false; //sentinels
-    int start, end;
+    boolean finished = false, valid = false, yN = false; //sentinels
+    int start = 0, end = 0; //0 to keep compiler happy
     String answer;
     CounterController controller;
-    Scanner keyboard = new Scanner();
+    Scanner keyboard = new Scanner(System.in);
     
     System.out.println("This program tests a timer.");
     
     while (finished == false){
       valid = false;
-      while (! keyboard.hasNextInt()){ //if this doesn't work, try/catch?
+      while (valid == false){
         System.out.println("Enter a start number of seconds");
-        start = keyboard.NextInt();
+        try{
+          start = keyboard.nextInt();
+          valid = true;
+        }
+        catch (Exception e){
+          System.out.println("Error: invalid input.");
+          valid = false;
+        }
       }
       
-      while(! keyboard.hasNextInt()){ //if this doesn't work, try/catch?
+      valid = false;
+      while(valid == false){
         System.out.println("Enter an end number of seconds");
-        end = keyboard.NextInt();
+        try{
+          end = keyboard.nextInt();
+          valid = true;
+        }
+        catch (Exception e){
+          System.out.println("Error: invalid input.");
+          valid = false;
+        }
       }
       
       System.out.println("CounterController Starting.");
@@ -37,7 +52,7 @@ public class Assignment7Part1Test{
       yN = false;
       while (yN == false){
         System.out.println("Continue? (y/n)");
-        answer = keyboard.Next();
+        answer = keyboard.next();
         if (answer.equalsIgnoreCase("y")){
           finished = false;
           yN = true;
