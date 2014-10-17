@@ -9,12 +9,18 @@ public class CounterModel{
   int counter = 0;
   
   public void CounterModel(int initialValue){
-    counter = intialValue;
+    counter = initialValue;
   }
   
   public void Increment(){
-    Thread.sleep(1000);
-    counter ++;
-    CounterView view = new CounterView();
+    try{
+      Thread.sleep(1000);
+      counter ++;
+      CounterView view = new CounterView();
+    }
+    catch(InterruptedException e){
+      System.out.println("Error!");
+      System.exit(0);
+    }
   }
 }
