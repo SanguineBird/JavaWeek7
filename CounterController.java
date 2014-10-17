@@ -15,10 +15,11 @@ public class CounterController{
   
   public void Start(){
     int counter;
-    CounterModel model = new CounterModel(startValue);
+    CounterModel model = new CounterModel();
+    model.CounterModel(startValue);
     
-    for(counter = startValue, counter <= endValue, counter++){
-      model.Indrement();
+    for(counter = startValue; counter <= endValue; counter++){
+      model.Increment();
     }
   }
 }
